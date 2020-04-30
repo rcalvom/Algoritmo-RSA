@@ -65,14 +65,13 @@ def extended_euclidean_algorithm(number, module):
             break
     basis_a = processes[len(processes)-2][0]
     factor_a = 1
-    basis_b = processes[len(processes)-2][1]
-    factor_b = processes[len(processes)-2][2]
+    factor_b = -processes[len(processes)-2][2]
     i = 3
     while len(processes) - i >= -1:
         basis_b = basis_a
-        factor_a = -factor_b
+        factor_a = factor_b
         basis_a = processes[len(processes) - i][0]
-        factor_b = int((basis_a * factor_a - 1)/basis_b)
+        factor_b = int((1 - basis_a * factor_a)/basis_b)
         i = i + 1
     return factor_a
 
